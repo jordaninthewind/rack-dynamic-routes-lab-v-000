@@ -10,8 +10,6 @@ class Application
         resp.write @@items[0].price
       elsif req.path == "/items/Pears"
         resp.write @@items[1].price
-      end
-
       else
         resp.write "Route not found"
         resp.status = 404
