@@ -1,13 +1,17 @@
 class Application
 
-  @@item = []
+  @@items = []
 
   def call(env)
       resp = Rack::Response.new
       req = Rack::Request.new(env)
 
-      if req.path=="/items/"
-        resp.write "You requested the songs"
+      if req.path=="/items/Figs"
+        resp.write @@items[0].price
+      elsif req.path == "/items/Pears"
+        resp.write @@songs[1].artist
+      end
+
       else
         resp.write "Route not found"
         resp.status = 404
